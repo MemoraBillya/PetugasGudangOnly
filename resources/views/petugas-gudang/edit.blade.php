@@ -51,5 +51,8 @@
             <input type="submit" value="Update Produk" >
         </div>
     </form>
+    <div>
+        <a href="{{route('petugas-gudang.index')}}">Kembali</a>
+    </div>
 </body>
 </html>

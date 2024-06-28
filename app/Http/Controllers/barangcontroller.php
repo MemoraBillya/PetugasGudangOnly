@@ -78,4 +78,9 @@ class barangcontroller extends Controller
         $barang->update($data);
         return redirect(route('petugas-gudang.index'))->with('success', 'Barang terupdate!');
     }
+
+    public function destroy(Barang $barang){
+        $barang->delete();
+        return redirect(route('petugas-gudang.index'))->with('success', 'Barang terhapus!');
+    }
 }

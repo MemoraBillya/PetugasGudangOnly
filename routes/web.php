@@ -12,3 +12,4 @@ Route::get('/petugasgudang/produkbaru', [barangcontroller::class, 'create'])->na
 Route::post('/petugasgudang', [barangcontroller::class, 'store'])->name('petugas-gudang.store');
 Route::get('/petugasgudang{barang}/edit', [barangcontroller::class, 'edit'])->name('petugas-gudang.edit');
 Route::put('/petugasgudang{barang}/update', [barangcontroller::class, 'update'])->name('petugas-gudang.update');
+Route::delete('/petugasgudang{barang}/destroy', [barangcontroller::class, 'destroy'])->name('petugas-gudang.destroy');

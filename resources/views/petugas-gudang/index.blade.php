@@ -22,6 +22,9 @@
     </form>
 
     <div>
+        <div>
+            <a href="{{route('petugas-gudang.create')}}">Tambahkan Produk Baru</a>
+        </div>
         <table border="1">
             <thead>
                 <tr>
@@ -33,6 +36,7 @@
                     <th><a href="{{ route('petugas-gudang.index', array_merge(request()->query(), ['sort_by' => 'Stok', 'sort_order' => $sort_order === 'asc' ? 'desc' : 'asc'])) }}">Stok</a></th>
                     <th><a href="{{ route('petugas-gudang.index', array_merge(request()->query(), ['sort_by' => 'Barcode', 'sort_order' => $sort_order === 'asc' ? 'desc' : 'asc'])) }}">Barcode</a></th>
                     <th>Edit</th>
+                    <th>Hapus</th>
                 </tr>
             </thead>
             <tbody>
@@ -46,6 +50,13 @@
                         <td>{{ $item->Stok }}</td>
                         <td>{{ $item->Barcode }}</td>
                         <td><a href="{{ route('petugas-gudang.edit', ['barang' => $item->KodeBarang]) }}">Edit</a></td>
+                        <td>
+                            <form method="post" action="{{ route('petugas-gudang.destroy', $item) }}">
+                                @csrf
+                                @method('delete')
+                                <input type="submit" value="Delete" onclick="return confirm('Hapus barang ini?');" />
+                            </form>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>
